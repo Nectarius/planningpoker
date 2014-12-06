@@ -22,9 +22,9 @@
 
     </ss:http>
 
-    <ss:http pattern="/**/*.css" security="none"/>
+    <ss:http pattern="/resources/assets/font-awesome.min.css" security="none"/>
 
-    <ss:http pattern="/**/*.js" security="none"/>
+    <ss:http pattern="/resources/assets/text-angular/textAngular-sanitize.js" security="none"/>
 
     <ss:http pattern="/" security="none"/>
 
@@ -34,7 +34,7 @@
    <!-- <ss:http pattern="library/**/*.css" security='none'/>-->
 
     <ss:http auto-config="true" access-denied-page="/pages/auth/denied" >
-        <ss:intercept-url pattern="/**"
+        <ss:intercept-url pattern="/"
                           access="ROLE_GUEST"/>
 
         <ss:form-login
@@ -45,7 +45,7 @@
 
         <ss:logout
                 invalidate-session="true"
-                logout-success-url="/pages/events"
+                logout-success-url="/pages/auth/login"
                 logout-url="/pages/auth/logout"/>
     </ss:http>
 

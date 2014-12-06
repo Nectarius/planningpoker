@@ -1,5 +1,6 @@
 package service.impl;
 
+import org.springframework.stereotype.Service;
 import service.PlanningGameService;
 import view.PlanningGameView;
 
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  *
  */
+@Service
 public class PlanningGameServiceImpl implements PlanningGameService {
 
     private PlanningGameView createPlanningGameStub(String theme, String description){
