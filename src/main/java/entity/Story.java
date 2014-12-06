@@ -2,38 +2,33 @@ package entity;
 
 import java.util.List;
 
-/**
- *
- */
 public class Story {
-
+    private String name;
+    private String description;
     private List<Task> tasks;
 
-    private String theme;
-
-    private String description;
-
-    public List<Task> getTasks() {
-        return tasks;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public String getName() {
+        return name;
     }
 
-    public String getTheme() {
-        return theme;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
 }
