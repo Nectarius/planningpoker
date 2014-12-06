@@ -8,8 +8,8 @@
     <artifactId>planningpoker</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>planningpoker-web</module>
-        <module>planningpoker-service</module>
+        <module>portal</module>
+        <module>service</module>
     </modules>
     <packaging>pom</packaging>
 
