@@ -1,7 +1,9 @@
 package view;
 
+import com.orientechnologies.orient.core.id.ORID;
 import entity.Story;
 
+import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -9,27 +11,11 @@ import java.util.List;
  */
 public class PlanningGameView {
 
-    private List<Story> stories;
+    private String id;
 
-    private String theme;
+    private String name;
 
     private String description;
-
-    public List<Story> getStories() {
-        return stories;
-    }
-
-    public void setStories(List<Story> stories) {
-        this.stories = stories;
-    }
-
-    public String getTheme() {
-        return theme;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
 
     public String getDescription() {
         return description;
@@ -37,5 +23,21 @@ public class PlanningGameView {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

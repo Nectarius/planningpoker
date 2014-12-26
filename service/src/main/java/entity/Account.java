@@ -1,11 +1,26 @@
 package entity;
 
+import com.orientechnologies.orient.core.id.ORID;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
 
+@Entity
 public class Account {
+
+    @Id
+    private ORID id;
+
     private String login;
+
     private String password;
+
+    @ElementCollection
     private List<String> roles;
+
+    @ElementCollection
     private List<String> scopes;
 
     public void setLogin(String login) {

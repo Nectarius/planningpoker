@@ -1,12 +1,27 @@
 package entity;
 
+import com.orientechnologies.orient.core.id.ORID;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
 
+@Entity
 public class Task {
+
+    @Id
+    private ORID id;
+
     private String description;
+
     private String name;
+
     private Integer estimate;
+
+    @ElementCollection
     private List<String> tags;
+
     private String scope;
 
     public void setDescription(String description) {
