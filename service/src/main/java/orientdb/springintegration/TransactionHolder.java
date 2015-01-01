@@ -1,4 +1,4 @@
-package springintegration;
+package orientdb.springintegration;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

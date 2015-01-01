@@ -1,4 +1,4 @@
-package entity;
+package orientdb.entity;
 
 import com.orientechnologies.orient.core.id.ORID;
 
@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Max;
 import java.util.List;
 
 @Entity

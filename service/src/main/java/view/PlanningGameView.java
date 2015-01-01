@@ -1,13 +1,7 @@
 package view;
 
-import com.orientechnologies.orient.core.id.ORID;
-import entity.Story;
-
-import javax.persistence.OneToMany;
-import java.util.List;
-
 /**
- *  data transfer object for Planning Game entity
+ *  data transfer object for Planning Game orientdb.entity
  */
 public class PlanningGameView {
 

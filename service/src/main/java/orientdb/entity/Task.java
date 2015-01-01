@@ -1,4 +1,4 @@
-package entity;
+package orientdb.entity;
 
 import com.orientechnologies.orient.core.id.ORID;
 

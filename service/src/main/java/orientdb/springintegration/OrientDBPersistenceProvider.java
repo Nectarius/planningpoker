@@ -1,4 +1,4 @@
-package springintegration;
+package orientdb.springintegration;
 
 import com.orientechnologies.orient.object.jpa.OJPAPersistenceProvider;
 import com.orientechnologies.orient.object.jpa.parsing.PersistenceXmlUtil;

@@ -1,6 +1,6 @@
-package mapper;
+package orientdb.mapper;
 
-import entity.PlanningGame;
+import orientdb.entity.PlanningGame;
 import org.springframework.stereotype.Service;
 import view.PlanningGameView;
 

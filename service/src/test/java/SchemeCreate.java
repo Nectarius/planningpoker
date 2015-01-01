@@ -1,18 +1,11 @@
 import com.orientechnologies.orient.core.entity.OEntityManager;
 import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.persistence.EntityManager;
 import java.util.Collection;
 
 /**
- * Created by nectarius on 18.05.14.
+ * temporary solutions
  */
 
 public class SchemeCreate {
@@ -28,7 +21,7 @@ public class SchemeCreate {
 
         database.setAutomaticSchemaGeneration(true);
 
-        database.getEntityManager().registerEntityClasses("entity");
+        database.getEntityManager().registerEntityClasses("orientdb/entity");
 
         OEntityManager entityManager = database.getEntityManager();
 

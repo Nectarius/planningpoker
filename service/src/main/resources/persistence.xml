@@ -6,10 +6,10 @@
 
     <persistence-unit name="planningpoker">
 
-        <class>entity.Account</class>
-        <class>entity.PlanningGame</class>
-        <class>entity.Story</class>
-        <class>entity.Task</class>
+        <class>orientdb.entity.Account</class>
+        <class>orientdb.entity.PlanningGame</class>
+        <class>orientdb.entity.Story</class>
+        <class>orientdb.entity.Task</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="remote:localhost/planningpoker-document" />

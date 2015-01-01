@@ -1,4 +1,4 @@
-package springintegration;
+package orientdb.springintegration;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.orm.jpa.EntityManagerFactoryInfo;
@@ -82,7 +82,7 @@ public class OrientDBTransactionManager extends AbstractPlatformTransactionManag
             }
 
             //
-            // it's something to think about ... {Bind the entity manager holder to the thread.}
+            // it's something to think about ... {Bind the orientdb.entity manager holder to the thread.}
             /*if (transactionHolder.isNewEntityManagerHolder()) {
                 TransactionSynchronizationManager.bindResource(
                         getEntityManagerFactory(), txObject.getEntityManagerHolder());
@@ -156,7 +156,7 @@ public class OrientDBTransactionManager extends AbstractPlatformTransactionManag
 
     /**
      * Set the EntityManagerFactory that this instance should manage transactions for.
-     * <p>Alternatively, specify the springintegration unit name of the target EntityManagerFactory.
+     * <p>Alternatively, specify the orientdb.springintegration unit name of the target EntityManagerFactory.
      * By default, a default EntityManagerFactory will be retrieved through finding a
      * single unique bean of type EntityManagerFactory in the containing BeanFactory.
      */

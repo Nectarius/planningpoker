@@ -1,4 +1,4 @@
-package springintegration;
+package orientdb.springintegration;
 
 import org.springframework.beans.factory.FactoryBean;
 
@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class OrientDBEntityManagerFactory implements FactoryBean<EntityManagerFactory> {
 
-    private String persistenceXmlLocation = "classpath*:/springintegration.xml";
+    private String persistenceXmlLocation = "classpath*:/orientdb.springintegration.xml";
 
     private String persistenceUnitName = "defaultPersistenceName";
 
