@@ -1,6 +1,9 @@
+package shared;
+
 import com.orientechnologies.orient.core.entity.OEntityManager;
 import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
 import org.junit.Test;
+
 
 import java.util.Collection;
 

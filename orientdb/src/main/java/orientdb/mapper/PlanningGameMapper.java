@@ -1,15 +1,11 @@
 package orientdb.mapper;
 
-import com.orientechnologies.orient.object.iterator.OObjectIteratorClass;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import orientdb.entity.PlanningGame;
-import org.springframework.stereotype.Service;
 import view.PlanningGameView;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**

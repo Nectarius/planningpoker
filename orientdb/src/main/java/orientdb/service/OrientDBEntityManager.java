@@ -5,7 +5,6 @@ import com.orientechnologies.orient.object.iterator.OObjectIteratorClass;
 import org.springframework.stereotype.Service;
 import orientdb.entity.PlanningGame;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 

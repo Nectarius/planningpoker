@@ -11,6 +11,6 @@
     <import resource="classpath*:/persistence-context.xml"/>
     <context:component-scan base-package="orientdb.service"/>
     <context:component-scan base-package="orientdb.mapper"/>
-    <context:component-scan base-package="configuration"/>
+
 
 </beans>
