@@ -26,7 +26,7 @@ public class PlanningGameTest {
     @Test
     public void savingTest() {
         PlanningGameView planningGameView1 = new PlanningGameView();
-        planningGameView1.setName("Wine");
+        planningGameView1.setName("Yet no one else");
         planningGameService.createNewPlanningGame(planningGameView1);
     }
 

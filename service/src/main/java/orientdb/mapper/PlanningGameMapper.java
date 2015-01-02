@@ -1,45 +1,37 @@
 package orientdb.mapper;
 
+import com.orientechnologies.orient.object.iterator.OObjectIteratorClass;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import orientdb.entity.PlanningGame;
 import org.springframework.stereotype.Service;
 import view.PlanningGameView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by adelfiri on 12/26/14.
  */
-@Service
-public class PlanningGameMapper {
+@Mapper(componentModel = "spring")
+public interface PlanningGameMapper {
 
-    public PlanningGameView create(PlanningGame planningGame) {
-        if (planningGame == null) return null;
-        PlanningGameView planningGameView = new PlanningGameView();
-        return copyTo(planningGame, planningGameView);
-    }
 
-    public List<PlanningGameView> createList(Iterable<PlanningGame> source) {
-        List<PlanningGameView> result = new ArrayList<PlanningGameView>();
-        for (PlanningGame planningGame : source) {
-            result.add(create(planningGame));
-        }
-        return result;
-    }
+    List<PlanningGameView> planningGameToPlanningGameViewDtos(List<PlanningGame> cars);
 
-    public PlanningGameView copyTo(PlanningGame source, PlanningGameView destination) {
-        if (source.getId() != null) {
-            destination.setId(source.getId().getIdentity().toString());
-        }
-        destination.setName(source.getName());
-        destination.setDescription(source.getDescription());
-        return destination;
-    }
+    @Mapping(target = "id",
+            expression = "java( new String( planningGame.getId().getIdentity().toString() ) )")
+    PlanningGameView planningGameToPlanningGameView(PlanningGame planningGame);
 
-    public PlanningGame copyFrom(PlanningGameView source, PlanningGame destination) {
-        destination.setDescription(source.getDescription());
-        destination.setName(source.getName());
-        return destination;
-    }
-
+    @Mappings({
+    @Mapping(target = "id",
+            ignore = true),
+    @Mapping(target = "stories",
+            ignore = true),
+    @Mapping(target = "participants",
+            ignore = true)
+     })
+    PlanningGame planningGameViewToPlanningGame(PlanningGameView planningGameView);
 }

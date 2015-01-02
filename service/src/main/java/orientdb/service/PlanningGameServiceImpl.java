@@ -1,8 +1,7 @@
 package orientdb.service;
 
 import com.orientechnologies.orient.object.iterator.OObjectIteratorClass;
-import ma.glasnost.orika.MapperFacade;
-import ma.glasnost.orika.MapperFactory;
+import org.apache.commons.collections.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,34 +20,37 @@ import java.util.List;
 public class PlanningGameServiceImpl implements PlanningGameService {
 
     @Autowired
-    private MapperFacade mapper;
+    private PlanningGameMapper mapper;
 
     @Autowired
     private OrientDBEntityManager orientDBEntityManager;
 
     @Override
     public List<PlanningGameView> findAllPlanningGames() {
+
         OObjectIteratorClass<PlanningGame> planningGames = orientDBEntityManager.browseClass(PlanningGame.class);
-        return mapper.mapAsList(planningGames, PlanningGameView.class);
+
+        return mapper.planningGameToPlanningGameViewDtos(IteratorUtils.toList(planningGames));
+
     }
 
     @Override
     public void createNewPlanningGame(PlanningGameView planningGameView) {
-        PlanningGame planningGame = mapper.map(planningGameView, PlanningGame.class);
+        PlanningGame planningGame = mapper.planningGameViewToPlanningGame(planningGameView);
         orientDBEntityManager.persist(planningGame);
     }
 
     @Override
     public void updatePlanningGame(PlanningGameView planningGameView) {
-        PlanningGame planningGame = orientDBEntityManager.find(PlanningGame.class, planningGameView.getId());
-        mapper.map(planningGameView, planningGame);
-        orientDBEntityManager.persist(planningGame);
+        //PlanningGame planningGame = orientDBEntityManager.find(PlanningGame.class, planningGameView.getId());
+        //mapper.map(planningGameView, planningGame);
+        //orientDBEntityManager.persist(planningGame);
     }
 
     @Override
     public PlanningGameView loadPlanningGame(String id) {
-        PlanningGame planningGame = orientDBEntityManager.find(PlanningGame.class, id);
-        return mapper.map(planningGame, PlanningGameView.class);
+       PlanningGame planningGame = orientDBEntityManager.find(PlanningGame.class, id);
+       return mapper.planningGameToPlanningGameView(planningGame);
     }
 
 }
