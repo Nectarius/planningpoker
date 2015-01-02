@@ -1,6 +1,8 @@
 package orientdb.service;
 
 import com.orientechnologies.orient.object.iterator.OObjectIteratorClass;
+import ma.glasnost.orika.MapperFacade;
+import ma.glasnost.orika.MapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +21,7 @@ import java.util.List;
 public class PlanningGameServiceImpl implements PlanningGameService {
 
     @Autowired
-    private PlanningGameMapper planningGameMapper;
+    private MapperFacade mapper;
 
     @Autowired
     private OrientDBEntityManager orientDBEntityManager;
@@ -27,26 +29,26 @@ public class PlanningGameServiceImpl implements PlanningGameService {
     @Override
     public List<PlanningGameView> findAllPlanningGames() {
         OObjectIteratorClass<PlanningGame> planningGames = orientDBEntityManager.browseClass(PlanningGame.class);
-        return planningGameMapper.createList(planningGames);
+        return mapper.mapAsList(planningGames, PlanningGameView.class);
     }
 
     @Override
     public void createNewPlanningGame(PlanningGameView planningGameView) {
-        PlanningGame planningGame = planningGameMapper.copyFrom(planningGameView, new PlanningGame());
+        PlanningGame planningGame = mapper.map(planningGameView, PlanningGame.class);
         orientDBEntityManager.persist(planningGame);
     }
 
     @Override
     public void updatePlanningGame(PlanningGameView planningGameView) {
         PlanningGame planningGame = orientDBEntityManager.find(PlanningGame.class, planningGameView.getId());
-        planningGame = planningGameMapper.copyFrom(planningGameView, planningGame);
+        mapper.map(planningGameView, planningGame);
         orientDBEntityManager.persist(planningGame);
     }
 
     @Override
     public PlanningGameView loadPlanningGame(String id) {
         PlanningGame planningGame = orientDBEntityManager.find(PlanningGame.class, id);
-        return planningGameMapper.create(planningGame);
+        return mapper.map(planningGame, PlanningGameView.class);
     }
 
 }

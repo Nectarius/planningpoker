@@ -18,6 +18,19 @@
             <version>${freemarker.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>1.4.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.googlecode.concurrentlinkedhashmap</groupId>
+                    <artifactId>concurrentlinkedhashmap-lru</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
         <!-- IoC support -->
         <dependency>
             <groupId>javax.inject</groupId>

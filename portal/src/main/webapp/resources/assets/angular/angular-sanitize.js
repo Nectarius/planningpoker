@@ -294,7 +294,7 @@ function htmlParser( html, handler ) {
           }
           chars = false;
         } else {
-          // no ending tag found --- this piece should be encoded as an entity.
+          // no ending tag found --- this piece should be encoded as an orientdb.entity.
           text += '<';
           html = html.substring(1);
         }
