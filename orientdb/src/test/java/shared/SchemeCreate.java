@@ -5,6 +5,7 @@ import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
 import org.junit.Test;
 
 
+import java.io.File;
 import java.util.Collection;
 
 /**
@@ -15,16 +16,20 @@ public class SchemeCreate {
 
     private String login = "root";
 
-    private String password = "somethingPassword";
+    private String password = "Coryll";
 
     @Test
     public void test() {
 
         OObjectDatabaseTx database = new OObjectDatabaseTx("remote:localhost/planningpoker-document").open(login, password );
 
+        String curDir = new File("").getAbsolutePath();
+
+        System.out.println(curDir);
+
         database.setAutomaticSchemaGeneration(true);
 
-        database.getEntityManager().registerEntityClasses("orientdb/entity");
+        database.getEntityManager().registerEntityClasses("orientdb.entity");
 
         OEntityManager entityManager = database.getEntityManager();
 

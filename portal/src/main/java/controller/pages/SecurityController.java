@@ -1,7 +1,7 @@
 /**
  * 
  */
-package controller;
+package controller.pages;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 

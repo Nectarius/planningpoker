@@ -42,7 +42,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <filter>
+    <!--<filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
@@ -50,14 +50,19 @@
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
 
     <!-- Spring web app. -->
     <servlet>
         <servlet-name>planningpoker</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/planningpoker-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
+
     </servlet>
 
     <servlet-mapping>
@@ -75,12 +80,17 @@
         <url-pattern>*.js</url-pattern>
     </servlet-mapping>
 
-    <!-- Spring REST. -->
     <servlet>
         <servlet-name>rest</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/rest-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+    <!-- Spring REST. -->
 
     <servlet-mapping>
         <servlet-name>rest</servlet-name>

@@ -28,12 +28,14 @@
         </property>
     </bean>-->
 
-    <context:component-scan base-package="controller"/>
+    <context:component-scan base-package="controller.pages"/>
 
     <mvc:annotation-driven/>
 
+
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="order" value="2" />
         <property name="prefix">
             <value>/WEB-INF/pages/</value>
         </property>

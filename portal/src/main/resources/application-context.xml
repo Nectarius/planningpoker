@@ -8,7 +8,7 @@
 
     <import resource="classpath*:/service-context.xml"/>
 
-    <import resource="classpath*:/security-context.xml"/>
+    <!--<import resource="classpath*:/security-context.xml"/>-->
 
 
 
