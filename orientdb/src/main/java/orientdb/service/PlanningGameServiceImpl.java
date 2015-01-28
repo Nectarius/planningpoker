@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import orientdb.entity.PlanningGame;
 import orientdb.mapper.PlanningGameMapper;
 import service.PlanningGameService;
+import view.PagedListView;
 import view.PlanningGameView;
 
 import java.util.List;
@@ -60,6 +61,13 @@ public class PlanningGameServiceImpl implements PlanningGameService {
 
     public void deleteAll(){
         throw new UnsupportedOperationException("deleteAll");
+    }
+
+    @Override
+    public PagedListView<PlanningGameView> findAll(Integer pageNumber, Integer pageSize, String direction, String column) {
+
+
+        return null;
     }
 
 }
