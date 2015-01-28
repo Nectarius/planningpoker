@@ -26,10 +26,8 @@ public interface PlanningGameService {
      *
      * @param pageNumber
      * @param pageSize
-     * @param direction {possible values :  asc & desc}
-     * @param column {sort by column name}
      * @return
      */
-    PagedListView<PlanningGameView> findAll(Integer pageNumber, Integer pageSize, String direction, String column);
+    PagedListView<PlanningGameView> findAll(Integer pageNumber, Integer pageSize);
 
 }

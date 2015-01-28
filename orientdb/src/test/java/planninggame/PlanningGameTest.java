@@ -22,9 +22,12 @@ public class PlanningGameTest {
 
     @Test
     public void savingTest() {
-        PlanningGameView planningGameView1 = new PlanningGameView();
-        planningGameView1.setName("Yet no one else");
-        planningGameService.createNewPlanningGame(planningGameView1);
+        for (int i = 0; i < 77; i++) {
+            PlanningGameView planningGameView1 = new PlanningGameView();
+            planningGameView1.setName("Yet no one else" + i);
+            planningGameService.createNewPlanningGame(planningGameView1);
+        }
+
     }
 
     @Test

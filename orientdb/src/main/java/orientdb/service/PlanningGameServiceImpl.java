@@ -1,5 +1,7 @@
 package orientdb.service;
 
+import com.orientechnologies.orient.core.record.impl.ODocument;
+import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 import com.orientechnologies.orient.object.iterator.OObjectIteratorClass;
 import org.apache.commons.collections.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,11 +65,32 @@ public class PlanningGameServiceImpl implements PlanningGameService {
         throw new UnsupportedOperationException("deleteAll");
     }
 
-    @Override
-    public PagedListView<PlanningGameView> findAll(Integer pageNumber, Integer pageSize, String direction, String column) {
 
+    public PagedListView<PlanningGameView> findAll(Integer pageNumber, Integer pageSize) {
 
-        return null;
+       Integer limit = pageSize;
+
+        Integer skip = pageSize*pageNumber;
+
+        OSQLSynchQuery<ODocument> query = new OSQLSynchQuery<ODocument>("select from PlanningGame  SKIP " + skip + " LIMIT  " + limit);
+
+        List<PlanningGame> planningGames = orientDBEntityManager.query(query);
+
+        List<PlanningGameView> planningGameViewList = mapper.planningGameToPlanningGameViewDtos(planningGames);
+
+        PagedListView pagedListView = new PagedListView();
+
+        pagedListView.setEntities(planningGameViewList);
+
+        int totalPages = (int) Math.ceil(planningGames.size() / pageSize);
+
+        pagedListView.setPageNum(pageNumber);
+
+        pagedListView.setPageSize(pageSize);
+
+        pagedListView.setTotal(totalPages);
+
+        return pagedListView;
     }
 
 }
