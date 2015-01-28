@@ -1,5 +1,7 @@
 package orientdb.service;
 
+import com.orientechnologies.orient.core.id.ORID;
+import com.orientechnologies.orient.core.id.ORecordId;
 import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
 import com.orientechnologies.orient.object.iterator.OObjectIteratorClass;
 import org.springframework.stereotype.Service;
@@ -27,11 +29,17 @@ public class OrientDBEntityManager {
         return getDatabaseTx().browseClass(iClusterClass, true);
     }
 
-    public void persist(Object entity) {
-        entityManager.persist(entity);
+    public <T> T persist(T entity) {
+        return getDatabaseTx().save(entity);
     }
 
     public <T> T find(Class<T> entityClass, Object primaryKey)  {
         return entityManager.find(entityClass, primaryKey);
     }
+
+    public void delete(String key){
+        ORecordId oRecordId = new ORecordId(key);
+        getDatabaseTx().delete(oRecordId);
+    }
+
 }

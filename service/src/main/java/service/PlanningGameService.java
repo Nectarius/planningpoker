@@ -11,10 +11,14 @@ public interface PlanningGameService {
 
     List<PlanningGameView> findAllPlanningGames();
 
-    void createNewPlanningGame(PlanningGameView planningGameView);
+    String createNewPlanningGame(PlanningGameView planningGameView);
 
     void updatePlanningGame(PlanningGameView planningGameView);
 
     PlanningGameView loadPlanningGame(String id);
+
+    void delete(String id);
+
+    void deleteAll();
 
 }

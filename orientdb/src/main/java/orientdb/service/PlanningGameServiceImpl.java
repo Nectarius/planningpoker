@@ -35,9 +35,9 @@ public class PlanningGameServiceImpl implements PlanningGameService {
     }
 
     @Override
-    public void createNewPlanningGame(PlanningGameView planningGameView) {
+    public String createNewPlanningGame(PlanningGameView planningGameView) {
         PlanningGame planningGame = mapper.planningGameViewToPlanningGame(planningGameView);
-        orientDBEntityManager.persist(planningGame);
+        return orientDBEntityManager.persist(planningGame).getId().toString();
     }
 
     @Override
@@ -51,6 +51,15 @@ public class PlanningGameServiceImpl implements PlanningGameService {
     public PlanningGameView loadPlanningGame(String id) {
        PlanningGame planningGame = orientDBEntityManager.find(PlanningGame.class, id);
        return mapper.planningGameToPlanningGameView(planningGame);
+    }
+
+    @Override
+    public void delete(String id) {
+        orientDBEntityManager.delete(id);
+    }
+
+    public void deleteAll(){
+        throw new UnsupportedOperationException("deleteAll");
     }
 
 }
