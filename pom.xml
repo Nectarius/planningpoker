@@ -11,6 +11,7 @@
         <module>portal</module>
         <module>service</module>
         <module>orientdb</module>
+        <module>cassandra</module>
     </modules>
     <packaging>pom</packaging>
 
